@@ -1,0 +1,23 @@
+version: '2'
+services: 
+    list_crawler:
+        build:
+            context: ./
+            dockerfile: ./docker/list_crawler/Dockerfile
+        environment:
+            - MONGO_URI=mongodb://192.168.3.21:27019
+            - DB_NAME=ptt_data
+            - LOGGER_LEVEL=INFO
+            - TZ=Asia/Taipei  
+        ports:
+            - 19010:80
+    
+    article_crawler:
+        build:
+            context: ./
+            dockerfile: ./docker/article_crawler/Dockerfile
+        environment:
+            - MONGO_URI=mongodb://192.168.3.21:27019
+            - DB_NAME=ptt_data
+            - LOGGER_LEVEL=INFO
+            - TZ=Asia/Taipei
