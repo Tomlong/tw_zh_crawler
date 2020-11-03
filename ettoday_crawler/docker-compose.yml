@@ -1,0 +1,19 @@
+version: '2'
+services:
+    news_crawler:
+        build:
+            context: ./
+            dockerfile: ./docker/news_crawler/Dockerfile
+        environment:
+            - MONGO_URI=mongodb://192.168.3.21:27019
+            - DB_NAME=ettoday_data
+            - LOGGER_LEVEL=INFO
+
+    news_parser:
+        build:
+            context: ./
+            dockerfile: ./docker/news_parser/Dockerfile
+        environment:
+            - MONGO_URI=mongodb://192.168.3.21:27019
+            - DB_NAME=ettoday_data
+            - LOGGER_LEVEL=INFO
