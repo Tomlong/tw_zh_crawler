@@ -10,7 +10,8 @@ services:
             - LOGGER_LEVEL=INFO
             - TZ=Asia/Taipei  
         ports:
-            - 19010:80
+            - 19020:80
+        restart: always
     
     article_crawler:
         build:
@@ -21,3 +22,4 @@ services:
             - DB_NAME=ptt_data
             - LOGGER_LEVEL=INFO
             - TZ=Asia/Taipei
+        restart: always
