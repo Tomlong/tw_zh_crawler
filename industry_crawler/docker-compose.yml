@@ -1,0 +1,11 @@
+version: '2'
+services:
+    industry_page_crawler:
+        build:
+            context: ./
+            dockerfile: ./docker/industry_page_crawler/Dockerfile
+        environment:
+            - MONGO_URI=mongodb://192.168.3.21:27019
+            - DB_NAME=industry_data
+            - LOGGER_LEVEL=INFO
+        restart: always
