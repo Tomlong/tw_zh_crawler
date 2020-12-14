@@ -1,0 +1,16 @@
+version: '2'
+services:
+    crawler:
+        build:
+            context: ./
+            dockerfile: ./docker/crawler/Dockerfile
+        environment:
+            - MONGO_URI=mongodb://192.168.3.21:27019
+            - MINIO_HOST=192.168.3.21
+            - MINIO_PORT=27020
+            - MINIO_ACCESS_KEY=test
+            - MINIO_SECRET_KEY=testtest
+            - MINIO_BUCKET=law-pdf-data
+            - DB_NAME=law_data
+            - LOGGER_LEVEL=INFO
+        restart: always

@@ -1,0 +1,5 @@
+beautifulsoup4==4.6.3
+minio
+pyppeteer
+pymongo==3.7.2
+requests
