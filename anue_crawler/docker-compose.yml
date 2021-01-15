@@ -1,0 +1,12 @@
+version: '2'
+services:
+    news_crawler:
+        build:
+            context: ./
+            dockerfile: ./docker/news_crawler/Dockerfile
+        environment:
+            - MONGO_URI=mongodb://192.168.3.21:27019
+            - DAY_RANGE=300
+            - DB_NAME=anue_data
+            - LOGGER_LEVEL=INFO
+        restart: always
