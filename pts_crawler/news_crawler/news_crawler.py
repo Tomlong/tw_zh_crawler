@@ -12,9 +12,13 @@ def get_newest_article_id():
     res = requests.get(NEWS_URL)
     soup = BeautifulSoup(res.text, "html.parser")
     news_info_soups = soup.find_all("figure")
-    newest_article_id = news_info_soups[0].find("a").get("href").split("/")[-1]
+    for news_info_soup in news_info_soups:
+        # 直到找到最新一篇 article_id 為止
+        try:
+            newest_article_id = news_info_soup.find("a").get("href").split("/")[-1]
+        except:
+            continue
     return newest_article_id
-
 
 def start_crawl(collection):
     newest_article_id = get_newest_article_id()

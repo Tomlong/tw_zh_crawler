@@ -33,7 +33,7 @@ def execute_job(job, article_collection, html_collection):
 
     # Get meta
     try:
-        meta = json.loads(main_soup.find("script", type="application/ld+json").text)
+        meta = json.loads(main_soup.find("script", type="application/ld+json").text, strict=False)
         content = get_content(main_soup)
         meta["content"] = content
     except:
